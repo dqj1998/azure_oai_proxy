@@ -96,6 +96,7 @@ Open your browser and navigate to:
   * The API key can be any text
   
 - Open AI URL of VSWizard[https://github.com/dqj1998/VSWizard.git]
+  
   http://localhost:8899/v1/chat/completions
 
 ## License
