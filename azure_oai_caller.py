@@ -34,15 +34,15 @@ def init_ai_caller():
         azure_ad_token_provider=token_provider,
         api_version="2023-12-01-preview")
 
-def generate_response(messages: list, model: str = "gpt-4o", stream: bool = False):
+def generate_response(messages: list, model: str = "gpt-4o", temperature: float=0.7, max_tokens: int=4000, top_p: float=0.95, frequency_penalty: float=0, presence_penalty: float=0, stop: list=None, stream: bool = True):
     response = ai_client.chat.completions.create(model=model,
         messages=messages,
-        temperature=0.7,
-        max_tokens=4000,
-        top_p=0.95,
-        frequency_penalty=0,
-        presence_penalty=0,
-        stop=None,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        top_p=top_p,
+        frequency_penalty=frequency_penalty,
+        presence_penalty=presence_penalty,
+        stop=stop,
         stream=stream)
 
     if stream:
@@ -62,7 +62,7 @@ def generate_response(messages: list, model: str = "gpt-4o", stream: bool = Fals
     else:
         return response.choices[0].message.content
 
-def process_message(message: list, chat_id: str = None):
+def process_message(message: list, chat_id: str = None, model: str="gpt-4o", temperature: float=0.7, stream: bool=True): 
     """
     Process user message and generate AI response.
     Yields:
@@ -89,7 +89,7 @@ def process_message(message: list, chat_id: str = None):
             raise ValueError("Each message must include 'role' and 'content' fields.")
 
     full_ai_response_content = ""
-    for chunk in generate_response(new_history, stream=True):
+    for chunk in generate_response(new_history, model, temperature, stream=True):
         yield chunk
         # Extract content from the chunk to build full_ai_response_content for history
         if chunk.startswith("data:"):

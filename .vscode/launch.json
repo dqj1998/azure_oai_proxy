@@ -16,7 +16,7 @@
                 "--port",
                 "8899"
             ],
-            "python": "/Users/dqj/HDD/AIPrjs/aivenv/bin/python",
+            "python": "/Users/dqj/HDD/myenv/bin/python",
             "jinja": true
         }
     ]
