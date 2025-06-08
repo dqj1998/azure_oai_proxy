@@ -13,6 +13,7 @@ This Python project implements a proxy server that forwards JSON requests to the
   - [API Documentation](#api-documentation)
   - [Environment Variables](#environment-variables)
   - [Endpoints](#endpoints)
+  - [Client setting](#client-setting)
   - [License](#license)
 
 ## Prerequisites
@@ -45,18 +46,14 @@ This Python project implements a proxy server that forwards JSON requests to the
 
 1. Copy the example environment file and set your credentials:
    ```bash
-   cp .env .env.local
+   cp .env-exmple .env
    ```
-2. Edit `.env.local` and populate the following variables:
+2. Edit `.env` and populate the following variables:
    ```
    AZURE_TENANT_ID=<your-tenant-id>
    AZURE_CLIENT_ID=<your-client-id>
    AZURE_CLIENT_SECRET=<your-client-secret>
    AZURE_OPENAI_ENDPOINT=https://<your-openai-resource-name>.openai.azure.com
-   AZURE_OPENAI_MODEL=<your-deployment-or-model-name>
-   # Optional: override default API version
-   AZURE_OPENAI_API_VERSION=2023-03-15-preview
-   PORT=8000
    ```
 
 ## Usage
@@ -64,17 +61,17 @@ This Python project implements a proxy server that forwards JSON requests to the
 Start the FastAPI server with Uvicorn:
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --reload
+uvicorn main:app --host 0.0.0.0 --port ${PORT:-8899} --reload
 ```
 
-The proxy will listen on `http://localhost:8000` by default.
+The proxy will listen on `http://localhost:8899` by default.
 
 ## API Documentation
 
 Open your browser and navigate to:
 
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
+- Swagger UI: `http://localhost:8899/docs`
+- ReDoc: `http://localhost:8899/redoc`
 
 ## Environment Variables
 
@@ -82,15 +79,21 @@ Open your browser and navigate to:
 - `AZURE_CLIENT_ID`: Service principal client ID.
 - `AZURE_CLIENT_SECRET`: Service principal client secret.
 - `AZURE_OPENAI_ENDPOINT`: Base URL of your Azure OpenAI resource.
-- `AZURE_OPENAI_MODEL`: Deployment or model name.
-- `AZURE_OPENAI_API_VERSION`: (Optional) API version string, default is `2023-03-15-preview`.
-- `PORT`: (Optional) HTTP port for Uvicorn, default is `8000`.
+- `PORT`: (Optional) HTTP port for Uvicorn, default is `8899`.
 
 ## Endpoints
 
 - `POST /api/proxy`: Forward a JSON body to the Azure OpenAI chat completion API.  
   - **Request**: arbitrary JSON parameters compliant with the Azure OpenAI specification.  
   - **Response**: the JSON response from Azure OpenAI.
+
+## Client setting
+
+- Example of VSCode Cline
+  * The API key can be any text
+  
+- Open AI URL of VSWizard[https://github.com/dqj1998/VSWizard.git]
+  http://localhost:8899/v1/chat/completions
 
 ## License
 
