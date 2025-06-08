@@ -90,6 +90,7 @@ Open your browser and navigate to:
 ## Client setting
 
 - Example of VSCode Cline
+  
   ![image](https://github.com/user-attachments/assets/70346c9c-28d0-4741-8225-e0712e0e63b9)
 
   * The API key can be any text
