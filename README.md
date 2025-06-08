@@ -92,7 +92,8 @@ Open your browser and navigate to:
 
 - Example of VSCode Cline
   
-  ![image](https://github.com/user-attachments/assets/70346c9c-28d0-4741-8225-e0712e0e63b9)
+  ![Az-conf-cliennt-4 1](https://github.com/user-attachments/assets/d3929535-4846-4ded-ae6d-253ec9de3872)
+
 
   * The API key can be any text
   
