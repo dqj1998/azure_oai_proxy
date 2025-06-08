@@ -84,9 +84,13 @@ Open your browser and navigate to:
 
 ## Endpoints
 
-- `POST /api/proxy`: Forward a JSON body to the Azure OpenAI chat completion API.  
-  - **Request**: arbitrary JSON parameters compliant with the Azure OpenAI specification.  
-  - **Response**: the JSON response from Azure OpenAI.
+- `GET /check`: A simple endpoint to check if the proxy is working.
+  - **Request**: None.
+  - **Response**: JSON object with status and response message.
+
+- `POST /v1/chat/completions`: Forward a JSON body to the Azure OpenAI chat completion API with optional streaming support.
+  - **Request**: JSON body with parameters compliant with the Azure OpenAI specification, including messages, model, temperature, max_tokens, etc.
+  - **Response**: JSON response from Azure OpenAI, with streaming support if requested.
 
 ## Client setting
 
