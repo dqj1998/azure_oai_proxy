@@ -46,14 +46,15 @@ This Python project implements a proxy server that forwards JSON requests to the
 
 1. Copy the example environment file and set your credentials:
    ```bash
-   cp .env-exmple .env
+   cp .env-example .env
    ```
 2. Edit `.env` and populate the following variables:
    ```
-   AZURE_TENANT_ID=<your-tenant-id>
-   AZURE_CLIENT_ID=<your-client-id>
-   AZURE_CLIENT_SECRET=<your-client-secret>
-   AZURE_OPENAI_ENDPOINT=https://<your-openai-resource-name>.openai.azure.com
+   AZURE_OPENAI_ENDPOINT=https://<your-azure-openai-endpoint>.openai.azure.com/
+   AZURE_TENANT_ID=<your-azure-tenant-id>
+   AZURE_CLIENT_ID=<your-azure-client-id>
+   AZURE_CLIENT_SECRET=<your-azure-client-secret>
+   PORT=8899
    ```
 
 ## Usage
